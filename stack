@@ -1,0 +1,97 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node *next;
+};
+int main()
+{
+	int i=1,n,value,a,pos,new_data,c,po,s;
+	struct node *p,*q,*head ,*new_node;
+	printf("enter number of elements need to give as input:-");
+	scanf("%d",&n);
+	printf("enter value of stack %d :-",i);
+	p=(struct node*)
+	malloc(sizeof(struct node));
+	scanf("%d",&value);
+	p->data=value;
+	p->next=NULL;
+	head=p;
+	for(i=2;i<=n;i++)
+	{
+		printf("enter value of stack %d :-",i);
+		q=(struct node*)malloc(sizeof(struct node));
+		scanf("%d",&value);
+		q->data=value;
+		q->next=NULL;
+		p->next=q; 
+		p=p->next; 
+	}
+	p=head;
+	while(p!=NULL)
+	{
+		printf("%d",p->data);
+		p=p->next;
+	}
+	printf("\n 1. for pop elemnt :");
+	printf("\n 2. for push element :");
+	printf("\n enter choice:");
+	scanf("%d",&a);
+	if(a==1) 
+	{
+		printf("enter the element position to pop:-");
+		scanf("%d",&pos);
+
+		if(pos == 1) 
+		{
+			q = head;
+			head = head->next;
+			free(q);
+		}
+		else 
+		{
+			c = 1;
+			p = head;
+			while(c < pos-1)
+			{
+				p = p->next;
+				c++;
+			}
+			q = p->next; 
+			p->next = q->next; 
+			free(q);
+			p = head; 
+			while(p != NULL)
+			{
+				printf("%d",p->data);
+				p = p->next;
+			}
+		}
+		
+	}
+		if(a==2)
+	 {
+			while(s<po-1)
+		{
+			p=p->next;
+			s++;
+		}
+		printf("enter the element to push position :");
+		scanf("%d",&po);
+		printf("enter value :");
+		new_node=(struct node*)malloc(sizeof(node));
+		scanf("%d",&new_data);
+		p=head;
+		new_node->next=NULL;
+		new_node->data=new_data;
+		q=p->next;
+		p->next=new_node;
+		new_node->next =q;
+		p=head;
+    	while(p!=NULL)
+    	{
+    		printf("%d",p->data);
+    		p=p->next;
+		}	
+}
+}
