@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,temp,a[5],iter=0;
+	printf("enter array :-");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<5;i++)
+	{
+		for(j=i+1;j<5;j++)
+		{
+			if(a[i]>a[j])
+			{
+				iter++;
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	for(i=0;i<5;i++)
+	{
+		printf(" %d",a[i]);
+	}
+	printf("\n");
+	printf("iterations %d",iter);
+}
